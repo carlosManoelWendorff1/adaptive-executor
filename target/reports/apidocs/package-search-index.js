@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.cmw.adaptive"},{"l":"com.cmw.adaptive.metrics"},{"l":"com.cmw.adaptive.queue"},{"l":"com.cmw.adaptive.scaling"},{"l":"com.cmw.adaptive.task"},{"l":"com.cmw.adaptive.task.enums"},{"l":"com.cmw.adaptive.worker"}];updateSearchResults();

@@ -1,7 +1,0 @@
-com.cmw.adaptive
-com.cmw.adaptive.metrics
-com.cmw.adaptive.queue
-com.cmw.adaptive.scaling
-com.cmw.adaptive.task
-com.cmw.adaptive.task.enums
-com.cmw.adaptive.worker
