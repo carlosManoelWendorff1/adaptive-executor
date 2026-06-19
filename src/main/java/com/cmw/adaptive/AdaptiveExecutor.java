@@ -11,6 +11,26 @@ import com.cmw.adaptive.scaling.ScalingStrategy;
 import com.cmw.adaptive.task.TrackedTask;
 import com.cmw.adaptive.worker.Worker;
 
+/**
+ * Adaptive task executor capable of executing prioritized tasks while
+ * dynamically scaling its worker pool according to a configurable
+ * scaling strategy.
+ *
+ * <p>
+ * Features:
+ * </p>
+ * <ul>
+ * <li>Priority-based task scheduling</li>
+ * <li>Automatic worker scaling</li>
+ * <li>Runtime metrics collection</li>
+ * <li>Multiple scaling strategies support</li>
+ * </ul>
+ *
+ * <p>
+ * This class is thread-safe and can be shared across multiple producer
+ * threads.
+ * </p>
+ */
 public class AdaptiveExecutor {
 
     private final PriorityTaskQueue queue = new PriorityTaskQueue();
@@ -26,6 +46,13 @@ public class AdaptiveExecutor {
 
     private final Thread scalingThread;
 
+    /**
+     * Creates a new adaptive executor.
+     *
+     * @param minWorkers minimum number of workers that should always remain active
+     * @param maxWorkers maximum number of workers allowed
+     * @param strategy   scaling strategy used to determine desired worker count
+     */
     public AdaptiveExecutor(
             int minWorkers,
             int maxWorkers,
@@ -47,6 +74,15 @@ public class AdaptiveExecutor {
                                 strategy));
     }
 
+    /**
+     * Creates and starts a new worker thread.
+     *
+     * <p>
+     * This method is primarily intended for internal use by scaling
+     * components.
+     * </p>
+     */
+
     public void createWorker() {
 
         int workerId = workers.size();
@@ -64,6 +100,10 @@ public class AdaptiveExecutor {
         metrics.workerStarted();
     }
 
+    /**
+     * Removes a worker from the pool if the minimum worker limit
+     * has not been reached.
+     */
     public void removeWorker() {
 
         if (workers.size() <= minWorkers) {
@@ -77,6 +117,16 @@ public class AdaptiveExecutor {
         metrics.workerStopped();
     }
 
+    /**
+     * Submits a task for execution.
+     *
+     * <p>
+     * The task will be enqueued according to its priority and executed
+     * by available workers.
+     * </p>
+     *
+     * @param task task to execute
+     */
     public void submit(
             TrackedTask task) {
 
@@ -88,26 +138,61 @@ public class AdaptiveExecutor {
                 queue.size());
     }
 
+    /**
+     * Returns the runtime metrics instance associated with this executor.
+     *
+     * @return executor metrics
+     */
     public ExecutorMetrics metrics() {
         return metrics;
     }
 
+    /**
+     * Returns the current number of tasks waiting in the queue.
+     *
+     * @return current queue size
+     */
     public int queueSize() {
         return queue.size();
     }
 
+    /**
+     * Returns the current number of active worker threads.
+     *
+     * @return current worker count
+     */
     public int workerCount() {
         return workers.size();
     }
 
+    /**
+     * Returns the minimum number of workers that should always remain active.
+     *
+     * @return minimum worker count
+     */
     public int minWorkers() {
         return minWorkers;
     }
 
+    /**
+     * Returns the maximum number of workers allowed in this executor.
+     *
+     * @return maximum worker count
+     */
     public int maxWorkers() {
         return maxWorkers;
     }
 
+    /**
+     * Gracefully shuts down the executor.
+     *
+     * <p>
+     * Stops the scaling manager and waits for all workers
+     * to terminate.
+     * </p>
+     *
+     * @throws InterruptedException if interrupted while waiting
+     */
     public void shutdown()
             throws InterruptedException {
 

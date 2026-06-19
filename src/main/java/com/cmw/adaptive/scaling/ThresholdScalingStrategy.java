@@ -1,5 +1,15 @@
 package com.cmw.adaptive.scaling;
 
+/**
+ * A simple scaling strategy that adjusts the number of worker threads based on
+ * the current queue size and CPU load.
+ *
+ * <p>
+ * The ThresholdScalingStrategy increases the number of workers when the queue
+ * size exceeds a certain threshold and decreases it when the CPU load is high.
+ * This approach helps to balance responsiveness with resource utilization.
+ * </p>
+ */
 public class ThresholdScalingStrategy implements ScalingStrategy {
 
         private static final double CPU_SATURATION_THRESHOLD = 0.85;

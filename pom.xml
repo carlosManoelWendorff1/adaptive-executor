@@ -6,21 +6,43 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cmw.adaptive</groupId>
+    <groupId>io.github.carlosmanoelwendorff1</groupId>
+
     <artifactId>adaptive-executor</artifactId>
 
-    <version>0.1.0</version>
-
-    <packaging>jar</packaging>
+    <version>1.0.0</version>
 
     <name>Adaptive Executor</name>
 
     <description>
-        Adaptive task executor with priority scheduling,
-        dynamic worker scaling and runtime metrics.
+    Adaptive task executor with priority scheduling,
+    dynamic worker scaling and runtime metrics.
     </description>
 
-    <url>https://github.com/seu-usuario/adaptive-executor</url>
+    <url>
+    https://github.com/carlosManoelWendorff1/adaptive-executor
+    </url>
+
+    <scm>
+        <connection>
+            scm:git:git://github.com/carlosManoelWendorff1/adaptive-executor.git
+        </connection>
+
+        <developerConnection>
+            scm:git:ssh://github.com/carlosManoelWendorff1/adaptive-executor.git
+        </developerConnection>
+
+        <url>
+            https://github.com/carlosManoelWendorff1/adaptive-executor
+        </url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Carlos Manoel Wendorff</name>
+            <email>carlosmwendorff@gmail.com</email>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
@@ -29,15 +51,9 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Carlos Manoel Wendorff</name>
-        </developer>
-    </developers>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -61,7 +77,69 @@
                 <version>3.14.0</version>
 
                 <configuration>
-                    <release>25</release>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+
+                        <phase>verify</phase>
+
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+
+                <extensions>true</extensions>
+
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
                 </configuration>
             </plugin>
 

@@ -1,6 +1,24 @@
 package com.cmw.adaptive.scaling;
 
-public class PidScalingStrategy implements ScalingStrategy {
+/**
+ * Scaling strategy based on a PID controller.
+ *
+ * <p>
+ * Worker count is adjusted according to queue pressure,
+ * throughput trends and system load.
+ * </p>
+ *
+ * <p>
+ * PID terms:
+ * </p>
+ * <ul>
+ * <li>Kp - proportional gain</li>
+ * <li>Ki - integral gain</li>
+ * <li>Kd - derivative gain</li>
+ * </ul>
+ */
+public class PidScalingStrategy
+                implements ScalingStrategy {
 
         private static final double CPU_SATURATION_THRESHOLD = 0.85;
 
@@ -11,14 +29,32 @@ public class PidScalingStrategy implements ScalingStrategy {
         private double integral;
         private double previousError;
 
-        public PidScalingStrategy(double kp, double ki, double kd) {
+        /**
+         * Creates a PID scaling strategy.
+         *
+         * @param kp proportional gain
+         * @param ki integral gain
+         * @param kd derivative gain
+         */
+        public PidScalingStrategy(
+                        double kp,
+                        double ki,
+                        double kd) {
                 this.kp = kp;
                 this.ki = ki;
                 this.kd = kd;
         }
 
+        /**
+         * Calculates the desired worker count using PID control.
+         *
+         * @param ctx current scaling context
+         *
+         * @return desired worker count
+         */
         @Override
-        public int desiredWorkers(ScalingContext ctx) {
+        public int desiredWorkers(
+                        ScalingContext ctx) {
 
                 double error = ctx.queueSize();
 

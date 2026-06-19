@@ -1,0 +1,49 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+--release
+21
+-sourcepath
+'C:/Users/idiot/OneDrive/Documentos/adaptive-executor/src/main/java;C:/Users/idiot/OneDrive/Documentos/adaptive-executor/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/idiot/OneDrive/Documentos/adaptive-executor/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Adaptive Executor 1.0.0 API'
+-use
+-version
+-windowtitle
+'Adaptive Executor 1.0.0 API'
+com.cmw.adaptive
+com.cmw.adaptive.metrics
+com.cmw.adaptive.queue
+com.cmw.adaptive.scaling
+com.cmw.adaptive.task
+com.cmw.adaptive.task.enums
+com.cmw.adaptive.worker
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\src\main\java = 1781734398817
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\generated-sources\annotations = 1781897409475
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\allclasses-index.html = 1781897414538
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\allpackages-index.html = 1781897414540
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\element-list = 1781897414281
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\help-doc.html = 1781897414580
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\index-all.html = 1781897414570
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\index.html = 1781897414520
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\member-search-index.js = 1781897414546
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\module-search-index.js = 1781897414541
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\overview-summary.html = 1781897414575
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\overview-tree.html = 1781897414511
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\package-search-index.js = 1781897414542
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\search.html = 1781897414573
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\tag-search-index.js = 1781897414547
+C:\Users\idiot\OneDrive\Documentos\adaptive-executor\target\reports\apidocs\type-search-index.js = 1781897414543
