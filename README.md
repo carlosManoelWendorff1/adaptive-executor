@@ -322,7 +322,10 @@ Average Exec Time    : 503.18 ms
 - [ ] Work stealing
 
 ---
+## Benchmarks
 
+Benchmarks were made use the [ Adaptive executor benchmark](https://github.com/carlosManoelWendorff1/adaptive-executor-benchmark) project in GITHUB.
+---
 ## License
 
 MIT License
