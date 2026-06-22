@@ -324,7 +324,8 @@ Average Exec Time    : 503.18 ms
 ---
 ## Benchmarks
 
-Benchmarks were made use the [ Adaptive executor benchmark](https://github.com/carlosManoelWendorff1/adaptive-executor-benchmark) project in GITHUB.
+Benchmarks were made using the [ Adaptive executor benchmark](https://github.com/carlosManoelWendorff1/adaptive-executor-benchmark) project in GITHUB.
+
 ---
 ## License
 
